@@ -7,6 +7,9 @@ import com.aliyun.oss.OSSException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.ByteArrayInputStream;
 
 @Data
@@ -60,6 +63,8 @@ public class AliOssUtil {
                 .append(endpoint)
                 .append("/")
                 .append(objectName);
+
+        Logger log = LoggerFactory.getLogger(getClass());
 
         log.info("文件上传到:{}", stringBuilder.toString());
 

@@ -15,6 +15,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
@@ -33,6 +34,7 @@ import java.util.List;
  * 微信支付工具类
  */
 @Component
+@ConfigurationProperties(prefix = "wechat")
 public class WeChatPayUtil {
 
     //微信支付下单接口地址
