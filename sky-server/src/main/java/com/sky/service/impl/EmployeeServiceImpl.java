@@ -86,7 +86,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setUpdateTime(LocalDateTime.now());
 
         //设置操作者id
-        //TODO 后期需要改为当前登录用户id
+        // 后期需要改为当前登录用户id 已完成
         employee.setCreateUser(BaseContext.getCurrentId());
         employee.setUpdateUser(BaseContext.getCurrentId());
 
@@ -109,6 +109,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<Employee> records = page.getResult();
 
         return new PageResult(total, records);
+
+    }
+
+    public void startOrStop(Integer status, Long id) {
+        //update employee set status = ? where id = ?
+        Employee employee = Employee.builder().status(status).id(id).build();
+        employeeMapper.update(employee);
 
     }
 
